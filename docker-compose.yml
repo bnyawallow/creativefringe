@@ -6,4 +6,4 @@ services:
     ports:
       - "8080:80"
     restart: unless-stopped
-    container_name: my-react-app
+    container_name: fringebuilder
