@@ -3,18 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
+    ports:
+      - "8080:80"
     restart: unless-stopped
-    expose:
-      - "80"
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.creativefringeweb.rule=Host(`creativefringe.digital`)
-      - traefik.http.routers.creativefringeweb.entrypoints=websecure
-      - traefik.http.routers.creativefringeweb.tls.certresolver=letsencrypt
-      - traefik.http.services.creativefringeweb.loadbalancer.server.port=80
-    networks:
-      - traefik-proxy
-
-networks:
-  traefik-proxy:
-    external: true
+    container_name: my-react-app
